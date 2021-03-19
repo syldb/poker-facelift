@@ -1,22 +1,24 @@
 Vue.component('players-list', {
   template: `
-    <span>
-      <li class="player" v-for="player in players">
+    <md-list>
+      <md-subheader>Players</md-subheader>
+      <md-list-item v-for="player in players">
         <span v-if="player.name == name">
           <strong>{{player.name}}</strong>
-          <span class="choice">&nbsp;| {{player.choice}}</span>
+          <span v-if="player.choice"> | {{player.choice}}</span>
         </span>
         <span v-else>
           {{player.name}}
-          <span class="choice">&nbsp;|
-            <span v-if="hideChoices">
-              <span v-if="player.choice" class="hidden">0</span>
+          <span v-if="hideChoices">
+            <span v-if="player.choice">
+               | <md-icon>check</md-icon>
             </span>
-            <span v-else>{{player.choice}}</span>
+          </span>
+          <span v-else> | {{player.choice}}</span>
           </span>
         </span>
-      </li>
-    </span>`,
+      </md-list-item>
+    </md-list>`,
   computed: {
     hideChoices: function() {
       if (this.finished) {

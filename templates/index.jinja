@@ -20,19 +20,19 @@
   <body>
     <div id="app">
       <div class="page-container">
-        <md-app>
-          <md-app-toolbar class="md-primary">
-            <span class="md-title">{{ "{{ message }}" }}</span>
-          </md-app-toolbar>
-          <md-app-content>
-            <span v-if="connected"> 
-              <room :players="players" :observers="observers" :name="name" :finished="finished"/>
-            </span>
-            <span v-else>
+        <span v-if="connected"> 
+          <room :players="players" :observers="observers" :name="name" :finished="finished"/>
+        </span>
+        <span v-else>
+          <md-app>
+            <md-app-toolbar class="md-primary">
+              <span class="md-title">{{ "{{ message }}" }}</span>
+            </md-app-toolbar>
+            <md-app-content>
               <input-name @enter="enter"/>
-            </span>
-          </md-app-content>
-        </md-app>
+            </md-app-content>
+          </md-app>
+        </span>
       </div>
     </div>
 
