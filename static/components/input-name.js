@@ -1,11 +1,13 @@
 Vue.component('input-name', {
   template: `
-    <div>
-      <label for="name">Your name:</label>
-      <input type="text" id="name" v-model="username">
-      <button @click="player">Play</button>
-      <button @click="observe">Observe</button>
-    </div>`,
+    <form>
+      <md-field>
+        <label for="name">Your name</label>
+        <md-input type="text" v-model="username" required></md-input>
+      </md-field>
+      <md-button class="md-raised md-primary" @click="player">Join as player</md-button>
+      <md-button class="md-raised" @click="observe">Join as observer</md-button>
+    </form>`,
   data: function () {
     return {
       username: null
@@ -13,10 +15,16 @@ Vue.component('input-name', {
   },
   methods: {
     player: function() {
+      if (!this.username) {
+        return
+      }
       socket.emit('join_player', this.username)
       this.$emit('enter', this.username)
     },
     observe: function() {
+      if (!this.username) {
+        return
+      }
       socket.emit('join_observer', this.username)
       this.$emit('enter', this.username)
     }

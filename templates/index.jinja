@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
-    <title>Planning Poker</title>
+    <title>Poker FaceLift</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css">
@@ -19,13 +19,21 @@
   </head>
   <body>
     <div id="app">
-      <h2>{{ message }}</h2>
-      <span v-if="connected"> 
-        <room :players="players" :observers="observers" :name="name" :finished="finished"/>
-      </span>
-      <span v-else>
-        <input-name @enter="enter"/>
-      </span>
+      <div class="page-container">
+        <md-app>
+          <md-app-toolbar class="md-primary">
+            <span class="md-title">{{ "{{ message }}" }}</span>
+          </md-app-toolbar>
+          <md-app-content>
+            <span v-if="connected"> 
+              <room :players="players" :observers="observers" :name="name" :finished="finished"/>
+            </span>
+            <span v-else>
+              <input-name @enter="enter"/>
+            </span>
+          </md-app-content>
+        </md-app>
+      </div>
     </div>
 
     <script src="static/components/observers-list.js"></script>
