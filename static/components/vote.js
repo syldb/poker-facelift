@@ -7,8 +7,9 @@ Vue.component('vote', {
   props: ['name'],
   template: `
     <md-menu md-direction="top-start">
-      <md-button md-menu-trigger class="md-fab">
+      <md-button class="md-accent md-raised" md-menu-trigger>
         <md-icon>how_to_vote</md-icon>
+        <span>Vote</span>
       </md-button>
       <md-menu-content>
         <span v-for="choice in choices">

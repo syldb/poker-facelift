@@ -8,12 +8,14 @@ Vue.component('room', {
           </div>
 
           <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button" @click="reveal()" title="Reveal">
+            <md-button @click="reveal()" title="Reveal">
               <md-icon>remove_red_eye</md-icon>
+              <span>Reveal</span>
             </md-button>
           
-            <md-button class="md-icon-button" @click="clear()" title="Clear">
+            <md-button @click="clear()" title="Clear">
               <md-icon>delete_sweep</md-icon>
+              <span>Delete</span>
             </md-button>
           </div>
         </div>
