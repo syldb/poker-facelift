@@ -1,14 +1,16 @@
 let socket = io(window.location.origin + '/')
 
+Vue.use(VueMaterial.default)
+
 let app = new Vue({
   el: '#app',
   data: {
     message: 'Poker FaceLift',
-      connected: false,
-      name: '',
-      players: [],
-      observers: [],
-      finished: false
+    connected: false,
+    name: '',
+    players: [],
+    observers: [],
+    finished: false
   },
   methods: {
     enter: function(name) {

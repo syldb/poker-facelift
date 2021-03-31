@@ -1,19 +1,36 @@
 Vue.component('room', {
   template: `
-    <div>
-      <h3>Welcome {{name}}</h3>
-      <div class="players">
-        <ul id="players">
+    <md-app>
+      <md-app-toolbar class="md-primary">
+        <div class="md-toolbar-row">
+          <div class="md-toolbar">
+            <span class="md-title">Room</span>
+          </div>
+
+          <div class="md-toolbar-section-end">
+            <md-button @click="reveal()" title="Reveal">
+              <md-icon>remove_red_eye</md-icon>
+              <span>Reveal</span>
+            </md-button>
+          
+            <md-button @click="clear()" title="Clear">
+              <md-icon>delete_sweep</md-icon>
+              <span>Delete</span>
+            </md-button>
+          </div>
+        </div>
+      </md-app-toolbar>
+      <md-app-content>
+
+      <div class="md-layout">
+        <div class="md-layout-item">
           <players-list :players="players" :name="name" :finished="finished"/>
+        </div>
+        <div class="md-layout-item">
           <observers-list :observers="observers" :name="name"/>
-        </ul>
+        </div>
       </div>
-      <br>
       <vote :name="name"/>
-      <br><br>
-      <button @click="reveal()">Reveal</button>
-      <button @click="clear()">Clear</button>
-      <br><br>
     </div>`,
   methods: {
     reveal: function() {

@@ -1,14 +1,17 @@
 Vue.component('observers-list', {
   template: `
-    <span id="observers">
-      <li v-for="observer in observers">
-        <span v-if="observer.name == name">
-          <strong>{{observer.name}}</strong>
-        </span>
-        <span v-else>
-          {{observer.name}}
-        </span>
-      </li>
-    </span>`,
+    <md-list>
+      <md-subheader>Observers</md-subheader>
+      <md-list-item v-for="observer in observers">
+        <div class="md-list-item-text">
+          <span v-if="observer.name == name">
+            <strong>{{observer.name}}</strong>
+          </span>
+          <span v-else>
+            {{observer.name}}
+          </span>
+        </div>
+      </md-list-item>
+    </md-list>`,
   props: ['observers', 'name']
 })
