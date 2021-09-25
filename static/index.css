@@ -4,12 +4,6 @@ html, body {
   text-align: center;
 }
 
-span.hidden {
-  background-color: black;
-  display: inline-block;
-  width: 20px;
-}
-
 div.players {
   width: max-content;
   text-align: left;
