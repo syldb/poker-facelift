@@ -1,4 +1,7 @@
 flask
 flask-socketio<5.0.0
+# Werkzeug is a dep of flask-socketio
+# We need to freeze it on order to user flask-socketio v4
+Werkzeug==2.0.1
 gunicorn
 eventlet==0.30.2
