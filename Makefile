@@ -9,3 +9,7 @@ test:
 
 lint:
 	flake8
+
+freeze-requirements:
+	pip-compile --no-emit-index-url --upgrade --output-file requirements/requirements.txt requirements/requirements.in
+	pip-compile --no-emit-index-url --upgrade --output-file requirements/requirements-dev.txt requirements/requirements-dev.in
