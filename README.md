@@ -1,6 +1,6 @@
 ## Poker Facelift
 
-A minimalistic tool for agile teams to estimate tickets.
+A minimalistic tool for agile teams to estimate tickets.\
 http://poker-facelift.herokuapp.com/
 
 
@@ -18,8 +18,8 @@ Setup:
 
 ### Launch tests
 
-Python tests can be triggered with `make test`.
-Code linters can be triggered with `make lint`
+Python tests can be triggered with `make test`.\
+Code linters can be triggered with `make lint`.
 
 
 ### Upgrade dependencies

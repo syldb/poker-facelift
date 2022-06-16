@@ -63,5 +63,10 @@ def index():
     return render_template('index.jinja', env=app.config['ENV'])
 
 
+@app.route('/vue3')
+def index_vue3():
+    return render_template('index-vue3.html')
+
+
 if __name__ == '__main__':
     socketio.run(app)
