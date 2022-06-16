@@ -1,8 +1,21 @@
 <!doctype html>
-<script src="https://unpkg.com/vue@3"></script>
+<html>
+  <head>
+    <link rel="stylesheet" href="static/index.css">
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
 
-<div id="app">Hello Vue 3</div>
+  <body>
+    <div id="app">
+      <input-name/>
+    </div>
 
-<script>
-  Vue.createApp({}).mount('#app')
-</script>
+    <script>
+      Vue.createApp({
+        components: {
+          'InputName': Vue.defineAsyncComponent( () => import('./static/components-vue3/input-name.js'))
+      },
+      }).mount('#app')
+    </script>
+  </body>
+</html>
