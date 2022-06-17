@@ -1,6 +1,11 @@
 const template = `
   <div>
-    <h3>Welcome {{name}}</h3>
+    <h3>Welcome {{ name }} </h3>
+    <div class="players">
+      <ul id= "players">
+        <players-list :name="name" :players="players" />
+      </ul>
+    </div>
     <br><br>
     <button @click="reveal()">Reveal</button>
     <button @click="clear()">Clear</button>
@@ -9,6 +14,9 @@ const template = `
 
 export default {
   template,
+  components: {
+    'PlayersList': Vue.defineAsyncComponent( () => import('./players-list.js'))
+  },
   methods: {
     reveal: function() {
       // socket.emit('reveal')
@@ -17,5 +25,5 @@ export default {
       // socket.emit('clear')
     }
   },
-  props: ['name']
+  props: ['name', 'players']
 }

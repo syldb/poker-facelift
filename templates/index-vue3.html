@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <span v-if="connected"> 
-        <room :name="name"/>
+        <room :name="name" :players="players" />
       </span>
       <span v-else>
         <input-name @enter="enter"/>
@@ -24,7 +24,8 @@
         data: () => {
           return {
             connected: false,
-            name: ''
+            name: '',
+            players: []
           }
         },
         methods: {
