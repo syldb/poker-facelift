@@ -1,8 +1,8 @@
 const template = `
   <div>
-    <label for="name">Your name:</label>
-    <input type="text" id="name" v-model="username">
-    <button @click="play">Play</button>
+    <label for="name">Your name:</label>&nbsp; 
+    <input type="text" id="name" v-model="username">&nbsp;
+    <button @click="play">Play</button>&nbsp;
     <button @click="observe">Observe</button>
   </div>`
 
