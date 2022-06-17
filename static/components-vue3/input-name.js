@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     play: function() {
-      // socket.emit('join_player', this.username)
+      socket.emit('join_player', this.username)
       this.$emit('enter', this.username)
     },
     observe: function() {

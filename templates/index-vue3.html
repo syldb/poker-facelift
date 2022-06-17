@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="static/index.css">
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2.3.0/dist/socket.io.js"></script>
   </head>
 
   <body>
@@ -16,6 +17,8 @@
     </div>
 
     <script>
+      let socket = io(window.location.origin + '/')
+
       Vue.createApp({
         components: {
           'InputName': Vue.defineAsyncComponent( () => import('./static/components-vue3/input-name.js')),
@@ -33,6 +36,18 @@
             this.name = name;
             this.connected = true;
           },
+          onRoomUpdate: function(room) {
+            this.players = room.players
+            this.observers = room.observers
+            this.finished = room.finished
+          }
+        },
+        created: function() {
+          socket.on('room_update', this.onRoomUpdate)
+          // when closing the page, we send an event to remove the user
+          window.addEventListener('beforeunload', (event) => {
+            socket.emit('left', this.name)
+          })
         }
       }).mount('#app')
     </script>
