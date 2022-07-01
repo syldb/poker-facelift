@@ -20,7 +20,7 @@ export default {
       this.$emit('enter', this.username)
     },
     observe: function() {
-      // socket.emit('join_observer', this.username)
+      socket.emit('join_observer', this.username)
       this.$emit('enter', this.username)
     }
   }

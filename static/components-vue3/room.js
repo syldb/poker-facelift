@@ -4,6 +4,7 @@ const template = `
     <div class="players">
       <ul id= "players">
         <players-list :name="name" :players="players" />
+        <observers-list :name="name" :observers="observers"/>
       </ul>
     </div>
     <br><br>
@@ -15,7 +16,8 @@ const template = `
 export default {
   template,
   components: {
-    'PlayersList': Vue.defineAsyncComponent( () => import('./players-list.js'))
+    'PlayersList': Vue.defineAsyncComponent(() => import('./players-list.js')),
+    'ObserversList': Vue.defineAsyncComponent(() => import('./observers-list.js'))
   },
   methods: {
     reveal: function() {
@@ -25,5 +27,5 @@ export default {
       // socket.emit('clear')
     }
   },
-  props: ['name', 'players']
+  props: ['name', 'players', 'observers']
 }

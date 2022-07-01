@@ -9,7 +9,7 @@
   <body>
     <div id="app">
       <span v-if="connected"> 
-        <room :name="name" :players="players" />
+        <room :name="name" :players="players" :observers="observers"/>
       </span>
       <span v-else>
         <input-name @enter="enter"/>
@@ -28,7 +28,8 @@
           return {
             connected: false,
             name: '',
-            players: []
+            players: [],
+            observers: [],
           }
         },
         methods: {
