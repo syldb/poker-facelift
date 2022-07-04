@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2.3.0/dist/socket.io.js"></script>
   </head>
@@ -9,7 +10,7 @@
   <body>
     <div id="app">
       <span v-if="connected"> 
-        <room :name="name" :players="players" :observers="observers"/>
+        <room :name="name" :players="players" :observers="observers" :finished="finished"/>
       </span>
       <span v-else>
         <input-name @enter="enter"/>
@@ -30,6 +31,7 @@
             name: '',
             players: [],
             observers: [],
+            finished: false
           }
         },
         methods: {

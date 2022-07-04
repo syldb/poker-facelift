@@ -15,7 +15,9 @@ const template = `
             <span v-else>{{player.choice}}</span>
           </span>
           <span v-else>
-            <i class="fa fa-spinner fa-pulse fa-fw"></i>
+            <span v-if="hideChoices">
+              <i class="fa fa-spinner fa-pulse fa-fw"></i>
+            </span>
           </span>
         </span>
       </span>
@@ -24,5 +26,18 @@ const template = `
 
 export default {
   template,
-  props: ['name', 'players']
+  computed: {
+    hideChoices: function() {
+      if (this.finished) {
+        return false
+      }
+      for (const player of this.players) {
+        if (!player.choice) {
+          return true
+        }
+      }
+      return false
+    }
+  },
+  props: ['name', 'players', 'finished']
 }

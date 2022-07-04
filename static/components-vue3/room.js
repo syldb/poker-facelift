@@ -3,7 +3,7 @@ const template = `
     <h3>Welcome {{ name }} </h3>
     <div class="players">
       <ul id= "players">
-        <players-list :name="name" :players="players" />
+        <players-list :name="name" :players="players" :finished="finished"/>
         <observers-list :name="name" :observers="observers"/>
       </ul>
     </div>
@@ -24,11 +24,11 @@ export default {
   },
   methods: {
     reveal: function() {
-      // socket.emit('reveal')
+      socket.emit('reveal')
     },
     clear: function() {
-      // socket.emit('clear')
+      socket.emit('clear')
     }
   },
-  props: ['name', 'players', 'observers']
+  props: ['name', 'players', 'observers', 'finished']
 }
