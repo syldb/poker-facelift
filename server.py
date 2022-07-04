@@ -65,7 +65,7 @@ def index():
 
 @app.route('/vue3')
 def index_vue3():
-    return render_template('index-vue3.html')
+    return render_template('index-vue3.jinja', env=app.config['ENV'])
 
 
 if __name__ == '__main__':
