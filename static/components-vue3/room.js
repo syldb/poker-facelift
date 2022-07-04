@@ -7,6 +7,8 @@ const template = `
         <observers-list :name="name" :observers="observers"/>
       </ul>
     </div>
+    <br>
+    <vote :name="name"/>
     <br><br>
     <button @click="reveal()">Reveal</button>
     <button @click="clear()">Clear</button>
@@ -17,7 +19,8 @@ export default {
   template,
   components: {
     'PlayersList': Vue.defineAsyncComponent(() => import('./players-list.js')),
-    'ObserversList': Vue.defineAsyncComponent(() => import('./observers-list.js'))
+    'ObserversList': Vue.defineAsyncComponent(() => import('./observers-list.js')),
+    'Vote': Vue.defineAsyncComponent(() => import('./vote.js'))
   },
   methods: {
     reveal: function() {
